@@ -1,0 +1,36 @@
+{
+    "name": "olymp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "proxy": "http://localhost:6001/",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "body-parser": "^1.20.2",
+        "cookie-parser": "^1.4.6",
+        "csv-parser": "^3.0.0",
+        "express": "^4.18.1",
+        "set-interval-async": "^3.0.3",
+        "sqlite": "^4.1.2",
+        "sqlite3": "^5.1.4"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

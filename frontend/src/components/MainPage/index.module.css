@@ -1,0 +1,5 @@
+.mainLending {
+    display: flex;
+    row-gap: 70px;
+    flex-direction: column;
+}

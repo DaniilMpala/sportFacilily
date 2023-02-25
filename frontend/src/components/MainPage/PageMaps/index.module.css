@@ -1,0 +1,81 @@
+.PageMaps {
+    height: 100vh;
+    padding: 5vh;
+}
+
+.blockMapInfo {
+    display: grid;
+    grid-template:
+        'icon title map'
+        'date desc map'
+        '. typeSports map'
+        '. phone map'
+        '. adress map';
+    gap: 7px;
+    grid-template-columns: 5vw 2fr 1fr;
+}
+
+.rectangleTitleMap {
+    grid-area: icon;
+    position: relative;
+    width: 5vw;
+    height: 10vh;
+}
+.rectangleTitleMap img {
+    position: absolute;
+    width: 9vw;
+    height: 18vh;
+}
+
+.title {
+    grid-area: title;
+    margin: 0;
+    align-self: center;
+    font-size: 3.5vh;
+}
+
+.map {
+    grid-area: map;
+    border-radius: 10px;
+}
+
+.date {
+    grid-area: date;
+    color: #9A9A9A;
+    font-size: 1.5vh;
+    text-align: end;
+}
+
+.typeSports {
+    grid-area: typeSports;
+    color: #9A9A9A;
+    font-weight: 400;
+    font-size: 2.5vh;
+    width: 50%;
+    justify-self: left;
+}
+
+.desc {
+    grid-area: desc;
+    color: #9A9A9A;
+    font-weight: 400;
+    font-size: 2.5vh;
+}
+
+.phone {
+    grid-area: phone;
+    color: #1D1D1D;
+    text-align: end;
+    font-size: 2.5vh;
+    width: 50%;
+    justify-self: right;
+}
+
+.adress {
+    grid-area: adress;
+    color: #9A9A9A;
+    text-align: end;
+    font-size: 2.5vh;
+    width: 50%;
+    justify-self: right;
+}

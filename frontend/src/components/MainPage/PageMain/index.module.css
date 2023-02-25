@@ -1,0 +1,78 @@
+.firstLending {
+    display: grid;
+    grid-template:
+        'title mainImg mainImg'
+        'prokrutka mainImg mainImg';
+    grid-template-columns: 1fr 5fr;
+
+    height: 100vh;
+    padding: 5vh;
+    overflow: hidden;
+}
+
+.mainImg{
+    grid-area: mainImg;
+    position: relative;
+}
+.basketImg{
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 90vh;
+}
+.title {
+    grid-area: title;
+    color: #327BED;
+    font-size: 12vh;
+}
+
+.prokrutka {
+    grid-area: prokrutka;
+    align-self: end;
+}
+
+
+.circleWhite {
+    position: relative;
+    border-radius: 100%;
+    background-color: white;
+    width: 120px;
+    height: 120px;
+}
+.circleWhiteRight {
+    position: absolute;
+    border-radius: 100%;
+    background-color: white;
+    width: 20vh;
+    height: 20vh;
+    right: 0;
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circleWhiteRight span{
+    color: #327BED;
+    width: min-content;
+    font-size: 2vh;
+}
+.downScroll{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.downScroll img{
+ height: 30px;
+}
+.circleWhite div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prokrutka span {
+    color: #327BED;
+}
