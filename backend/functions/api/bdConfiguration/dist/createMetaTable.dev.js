@@ -22,9 +22,13 @@ var createMetaTable = function createMetaTable(_ref) {
       switch (_context.prev = _context.next) {
         case 0:
           nameFile = _ref.nameFile, nameTable = _ref.nameTable;
+          console.log({
+            nameFile: nameFile,
+            nameTable: nameTable
+          });
 
           if (!(!nameFile || !nameTable)) {
-            _context.next = 3;
+            _context.next = 4;
             break;
           }
 
@@ -33,13 +37,13 @@ var createMetaTable = function createMetaTable(_ref) {
             message: "Недопустимое название параметра"
           });
 
-        case 3:
+        case 4:
           //очистим от пробелом
           nameFile = nameFile.trim();
           nameTable = nameTable.trim();
 
           if (!((0, _typeFile["default"])(nameFile) != 'csv')) {
-            _context.next = 7;
+            _context.next = 8;
             break;
           }
 
@@ -48,9 +52,9 @@ var createMetaTable = function createMetaTable(_ref) {
             message: "Файл должен быть типа csv"
           });
 
-        case 7:
+        case 8:
           if (/[a-z0-9_]*/.test(nameTable.toLowerCase())) {
-            _context.next = 9;
+            _context.next = 10;
             break;
           }
 
@@ -59,11 +63,11 @@ var createMetaTable = function createMetaTable(_ref) {
             message: "Название модифицируемой таблицы не правильное"
           });
 
-        case 9:
+        case 10:
           exists = _fs["default"].existsSync("./data/".concat(nameFile));
 
           if (exists) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
 
@@ -72,21 +76,21 @@ var createMetaTable = function createMetaTable(_ref) {
             message: "Файл не найден"
           });
 
-        case 12:
-          _context.next = 14;
+        case 13:
+          _context.next = 15;
           return regeneratorRuntime.awrap((0, _readFileCsv["default"])(nameFile));
 
-        case 14:
+        case 15:
           data = _context.sent;
-          _context.prev = 15;
-          _context.next = 18;
+          _context.prev = 16;
+          _context.next = 19;
           return regeneratorRuntime.awrap(_bd["default"].all("PRAGMA table_info(".concat(nameTable, ")")));
 
-        case 18:
+        case 19:
           metaDataTable = _context.sent;
 
           if (!(metaDataTable.length == 0)) {
-            _context.next = 32;
+            _context.next = 33;
             break;
           }
 
@@ -94,14 +98,13 @@ var createMetaTable = function createMetaTable(_ref) {
           findedUndefinedParams = false;
           data = data.map(function (structure) {
             if (structure['Формат значения поля'] == 'xsd:string' || structure['Формат значения поля'] == 'xsd:undefined' || structure['Формат значения поля'] == 'xsd:geolongitude' || structure['Формат значения поля'] == 'xsd:geolatitude') structure['Формат значения поля'] = 'TEXT';else if (structure['Формат значения поля'] == 'xsd:decimal') structure['Формат значения поля'] = 'NUMERIC';else findedUndefinedParams = true;
-            if (!structure['Наименование поля']) console.log(structure);
-            structure['Наименование поля'] = structure['Наименование поля'].replaceAll(':', "").trim().replaceAll(' ', "_");
+            if (!structure['Наименование поля']) structure['Наименование поля'] = structure['Наименование поля'].replaceAll(':', "").trim().replaceAll(' ', "_");
             if (structure['Наименование поля'] == "id") structure['Формат значения поля'] += " UNIQUE";
             return "\"".concat(structure['Наименование поля'], "\" ").concat(structure['Формат значения поля'], "\n");
           });
 
           if (!findedUndefinedParams) {
-            _context.next = 24;
+            _context.next = 25;
             break;
           }
 
@@ -110,46 +113,46 @@ var createMetaTable = function createMetaTable(_ref) {
             message: "Не смогли преобразовать тип поля"
           });
 
-        case 24:
-          _context.next = 26;
+        case 25:
+          _context.next = 27;
           return regeneratorRuntime.awrap(_bd["default"].run("\n                CREATE TABLE \"".concat(nameTable, "\" (\n                    ").concat(data, "\n                );  \n            ")));
 
-        case 26:
+        case 27:
           firstLetterUp = nameTable.charAt(0).toUpperCase() + nameTable.slice(1);
-          _context.next = 29;
+          _context.next = 30;
           return regeneratorRuntime.awrap(_bd["default"].run("\n                CREATE TABLE \"stats".concat(firstLetterUp, "\" (\n                    \"name\"\tTEXT UNIQUE,\n                    \"value\"\tTEXT\n                ); \n            ")));
 
-        case 29:
+        case 30:
           return _context.abrupt("return", {
             success: true,
             message: "Таблица успешно создана"
           });
 
-        case 32:
+        case 33:
           return _context.abrupt("return", {
             success: false,
             message: "Таблица с таким названием уже существует"
           });
 
-        case 33:
-          _context.next = 39;
+        case 34:
+          _context.next = 40;
           break;
 
-        case 35:
-          _context.prev = 35;
-          _context.t0 = _context["catch"](15);
+        case 36:
+          _context.prev = 36;
+          _context.t0 = _context["catch"](16);
           console.log(new Date(), _context.t0);
           return _context.abrupt("return", {
             success: false,
             message: "Внутренняя ошибка"
           });
 
-        case 39:
+        case 40:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[15, 35]]);
+  }, null, null, [[16, 36]]);
 };
 
 exports.createMetaTable = createMetaTable;
