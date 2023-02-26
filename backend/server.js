@@ -4,8 +4,8 @@ import http from "http"
 import db from "./connections/bd.js"
 import bodyParser from 'body-parser'
 
-import { createMetaTable } from "./functions/bdConfiguration/createMetaTable.js"
-import { fillTable } from "./functions/bdConfiguration/fillTable.js"
+import { createMetaTable } from "./functions/api/bdConfiguration/createMetaTable.js"
+import { fillTable } from "./functions/api/bdConfiguration/fillTable.js"
 import getStats from "./functions/api/getStats.js"
 import getAllFacility from "./functions/api/getAllFacility.js"
 
