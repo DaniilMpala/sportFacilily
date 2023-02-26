@@ -32,7 +32,7 @@ jobs:
       uses: ad-m/github-push-action@master # Загрузка сборки в репозиторий
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages
+        branch: master
         folder: build
 
   #   - name: Archive build folder
