@@ -22,8 +22,8 @@ jobs:
         npm install
         npm run build
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Deploy
+      uses: DaniilMpala/sportFacilily@v3
       with:
         deploy_key: ${{ secrets.TOKEN }}
         publish_dir: ./frontend/build
