@@ -23,10 +23,21 @@ jobs:
         npm run build
 
     - name: Deploy
-      uses: actions/upload-artifact@v2
+      uses: actions/checkout@v2
       with:
-        name: build
-        path: build/
+        ref: other-branch # Название ветки, в которую вы хотите скопировать содержимое папки build
+        path: other-branch # Название папки, где будет создана новая ветка
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git checkout --orphan temp
+        cp -r ../build/* .
+        git add -A
+        git commit -am "Build"
+        git branch -M other-branch
+        git push --force-with-lease origin other-branch
 
   #   - name: Archive build folder
   #     uses: actions/upload-artifact@v2
