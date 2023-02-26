@@ -42,7 +42,7 @@ export const createMetaTable = async ({ nameFile, nameTable }) => {
                 else findedUndefinedParams = true
 
                 if (!structure['Наименование поля'])
-                    
+                console.log(structure)
                 structure['Наименование поля'] = structure['Наименование поля'].replaceAll(':', "").trim().replaceAll(' ', "_")
 
                 if (structure['Наименование поля'] == "id")

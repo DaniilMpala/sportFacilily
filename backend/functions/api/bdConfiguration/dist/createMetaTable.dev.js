@@ -98,7 +98,8 @@ var createMetaTable = function createMetaTable(_ref) {
           findedUndefinedParams = false;
           data = data.map(function (structure) {
             if (structure['Формат значения поля'] == 'xsd:string' || structure['Формат значения поля'] == 'xsd:undefined' || structure['Формат значения поля'] == 'xsd:geolongitude' || structure['Формат значения поля'] == 'xsd:geolatitude') structure['Формат значения поля'] = 'TEXT';else if (structure['Формат значения поля'] == 'xsd:decimal') structure['Формат значения поля'] = 'NUMERIC';else findedUndefinedParams = true;
-            if (!structure['Наименование поля']) structure['Наименование поля'] = structure['Наименование поля'].replaceAll(':', "").trim().replaceAll(' ', "_");
+            if (!structure['Наименование поля']) console.log(structure);
+            structure['Наименование поля'] = structure['Наименование поля'].replaceAll(':', "").trim().replaceAll(' ', "_");
             if (structure['Наименование поля'] == "id") structure['Формат значения поля'] += " UNIQUE";
             return "\"".concat(structure['Наименование поля'], "\" ").concat(structure['Формат значения поля'], "\n");
           });

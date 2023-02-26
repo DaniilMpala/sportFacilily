@@ -16,17 +16,17 @@ jobs:
       with:
         node-version: '14.x'
 
-    - name: Install Dependencies And Build
-      run: |
-        cd frontend
-        npm install
-        npm run build
-
     - name: Test api
       run: |
         cd backend
         npm install
         npm test
+
+    - name: Install Dependencies And Build
+      run: |
+        cd frontend
+        npm install
+        npm run build
 
     - name: Deploy to repository
       uses: ad-m/github-push-action@master # Загрузка сборки в репозиторий
