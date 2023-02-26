@@ -7,7 +7,7 @@ export const createMetaTable = async ({ nameFile, nameTable }) => {
     console.log({ nameFile, nameTable })
     if (!nameFile || !nameTable)
         return { success: false, message: "Недопустимое название параметра" }
-
+ 
     //очистим от пробелом
     nameFile = nameFile.trim()
     nameTable = nameTable.trim()
