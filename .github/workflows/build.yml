@@ -5,7 +5,7 @@ on:
     branches: 'master'
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,8 +22,39 @@ jobs:
         npm install
         npm run build
 
-    - name: Start express Nodejs
-      run: |
-        cd backend
-        npm install
-        node server
+    - name: Archive build folder
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: build
+
+
+  upload:
+    name: Upload build folder
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download build folder
+      uses: actions/download-artifact@v2
+      with:
+        name: build
+        path: build
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v8
+      with:
+        add: 'build'
+        message: 'Add build folder'
+
+    - name: Push changes
+      uses: EndBug/push@v1
+      with:
+        branch: 'master'
+        force: true
+        directory: 'frontend/build'
+        github_token: ${{ secrets.TOKEN }}
+    # - name: Deploy to GitHub Pages
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     personal_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./build
