@@ -22,11 +22,11 @@ jobs:
         npm install
         npm run build
 
-    - name: Deploy
-      uses: actions/upload-artifact@v2
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        name: build
-        path: ./frontend/build
+        deploy_key: ${{ secrets.TOKEN }}
+        publish_dir: ./frontend/build
 
   #   - name: Archive build folder
   #     uses: actions/upload-artifact@v2
