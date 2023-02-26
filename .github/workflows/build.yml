@@ -41,13 +41,13 @@ jobs:
         path: build
 
     - name: Commit changes
-      uses: EndBug/add-and-commit@v8
+      uses: sportFacilily/add-and-commit@v8
       with:
         add: 'build'
         message: 'Add build folder'
 
     - name: Push changes
-      uses: EndBug/push@v1
+      uses: sportFacilily/push@v1
       with:
         branch: 'master'
         force: true
