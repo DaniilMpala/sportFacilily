@@ -22,12 +22,11 @@ jobs:
         npm install
         npm run build
 
-    - name: Deploy to GitHub Pages
-      uses: DaniilMpala/sportFacilily@1
+    - name: Deploy
+      uses: actions/upload-artifact@v2
       with:
-        ACCESS_TOKEN: ${{ secrets.TOKEN }}
-        BRANCH: master
-        FOLDER: frontend/build # Замените `build` на путь к вашей папке сборки React приложения
+        name: build
+        path: ./frontend/build
 
   #   - name: Archive build folder
   #     uses: actions/upload-artifact@v2
