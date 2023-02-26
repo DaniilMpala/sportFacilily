@@ -23,7 +23,7 @@ jobs:
         npm run build
 
     - name: Deploy
-      uses: DaniilMpala/sportFacilily@v3
+      uses: DaniilMpala/sportFacilily
       with:
         deploy_key: ${{ secrets.TOKEN }}
         publish_dir: ./frontend/build
