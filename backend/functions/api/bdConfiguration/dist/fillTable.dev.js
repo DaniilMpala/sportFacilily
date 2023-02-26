@@ -5,25 +5,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fillTable = void 0;
 
-var _bd = _interopRequireDefault(require("../../../connections/bd.js"));
+var _bd = _interopRequireDefault(require("../../connections/bd.js"));
 
 var _fs = _interopRequireDefault(require("fs"));
 
-var _typeFile = _interopRequireDefault(require("../../typeFile.js"));
+var _typeFile = _interopRequireDefault(require("../typeFile.js"));
 
-var _readFileCsv = _interopRequireDefault(require("../../readFileCsv.js"));
+var _readFileCsv = _interopRequireDefault(require("../readFileCsv.js"));
 
-var _distanceBetweenObjects = _interopRequireDefault(require("../../analyticsSportObject/distanceBetweenObjects.js"));
+var _distanceBetweenObjects = _interopRequireDefault(require("../analyticsSportObject/distanceBetweenObjects.js"));
 
-var _mostBuildings = _interopRequireDefault(require("../../analyticsSportObject/mostBuildings.js"));
+var _mostBuildings = _interopRequireDefault(require("../analyticsSportObject/mostBuildings.js"));
 
-var _mostFinance = _interopRequireDefault(require("../../analyticsSportObject/mostFinance.js"));
+var _mostFinance = _interopRequireDefault(require("../analyticsSportObject/mostFinance.js"));
 
-var _mostObject = _interopRequireDefault(require("../../analyticsSportObject/mostObject.js"));
+var _mostObject = _interopRequireDefault(require("../analyticsSportObject/mostObject.js"));
 
-var _allObject = _interopRequireDefault(require("../../analyticsSportObject/allObject.js"));
+var _allObject = _interopRequireDefault(require("../analyticsSportObject/allObject.js"));
 
-var _lastOpenObject = _interopRequireDefault(require("../../analyticsSportObject/lastOpenObject.js"));
+var _lastOpenObject = _interopRequireDefault(require("../analyticsSportObject/lastOpenObject.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -110,7 +110,6 @@ var fillTable = function fillTable(_ref) {
           data = _context.sent;
           _context.prev = 20;
           columns = Object.keys(data[0]).map(function (name) {
-            console.log(name);
             return {
               nameColumn: name,
               sqlColumn: "'".concat(name.replaceAll(':', "").trim().replaceAll(' ', "_"), "'\n")
