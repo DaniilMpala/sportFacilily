@@ -23,14 +23,14 @@
 * `npm i`
 * `npm test`
 
-## [Figma](https://www.figma.com/file/VrhlvZ7qEjK7n0wfB0Incf/Untitled?node-id=1%3A2&t=1XyIDhguVdr4XiFU-1)
-
-![Работающий вариант](https://github.com/DaniilMpala/sportFacilily/blob/master/Screen.png)
-
 ## Видео проекта
 
-![Работающий вариант](https://github.com/DaniilMpala/sportFacilily/blob/master/%D0%9B%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3.mp4)
+[На гугл диск](https://drive.google.com/file/d/1j_sY9xmfGGBGIOxs7ml-zC15QkJLw6m_/view?usp=share_link)
 
 ## Видео первого запуска
 
-![Работающий вариант](https://github.com/DaniilMpala/sportFacilily/blob/master/%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA.mp4)
+[На гугл диск](https://drive.google.com/file/d/1H0kaf00nrfG9ZjgOkTisjQsLkY24qGTL/view?usp=share_link)
+
+## [Figma](https://www.figma.com/file/VrhlvZ7qEjK7n0wfB0Incf/Untitled?node-id=1%3A2&t=1XyIDhguVdr4XiFU-1)
+
+![Работающий вариант](https://github.com/DaniilMpala/sportFacilily/blob/master/Screen.png)
