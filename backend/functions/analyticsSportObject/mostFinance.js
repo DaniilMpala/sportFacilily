@@ -57,23 +57,25 @@ export default async () => {
         return all
     }, {});
     // console.log(forPrograms)
-    // await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Год постройки меньше всего объектов', ${lowFrequentYear});`)
+    // await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Год, в котором было возведено наименьшее количество объектов', ${lowFrequentYear});`)
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
         'Данные по ФЦП', 
         '${JSON.stringify(maxFacilityForPrograms)}'
     );`)
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
-        'Больше всего финансируемых объектов по программе', 
+        'ФЦП Наибольшие данные по объектам', 
         '${JSON.stringify(forPrograms)}'
     );`)
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Общая сумма финансирования', ${allFinance});`)
-    await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Среднее финансирование на каждый объект составила', ${allFinance / data.length});`)
+    await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Среднее финансирование на каждый объект', ${allFinance / data.length});`)
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
-        'Больше всего финансовая помощь', 
+        'Наибольшая финансовая помощь, год', 
         '${JSON.stringify(maxYear)}'
         );`)
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
         'Финансирование по годам', 
         '${JSON.stringify(resultEveryYear)}'
     );`)
+
+    console.log(new Date(), 'Отработал mostFinance')
 }

@@ -29,26 +29,26 @@ export default () => {
     return (
         <main className={styles.mainLending}>
             <PageMain
-                allSportObject={findValue('Всего записей')}
+                allSportObject={findValue('Всего построенных объектов')}
             />
             <PageMaps />
             <PageMostFacility
-                yearBuilding={findValue('Колиство построенных объектов по годам')}
-                most={findValue('Больше всего')}
+                yearBuilding={findValue('Количество построенных объектов по годам')}
+                most={findValue('Количество спортивных объектов')}
                 bestYear={findValue('Год постройки больше всего объектов')}
-                lessYear={findValue('Год постройки меньше всего объектов')}
+                lessYear={findValue('Год, в котором было возведено наименьшее количество объектов')}
             />
             <PageFinancing
                 dataFCP={findValue('Данные по ФЦП')}
                 allFinance={findValue('Общая сумма финансирования')}
                 mostFinance={findValue('Финансирование по годам')}
-                avgFinance={findValue('Среднее финансирование на каждый объект составила')}
-                mostFinanceYear={findValue('Больше всего финансовая помощь')}
+                avgFinance={findValue('Среднее финансирование на каждый объект')}
+                mostFinanceYear={findValue('Наибольшая финансовая помощь, год')}
             />
             <PageMostFacilityBuilds 
-                lastBuild={findValue('Последняя постройка')}
-                mostFacility={findValue('Больше всего')}
-                yearBuilding={findValue('Колиство построенных объектов по годам')}
+                lastBuild={findValue('Данные о последнем построившимся спортивном объекте')}
+                mostFacility={findValue('Количество спортивных объектов')}
+                yearBuilding={findValue('Количество построенных объектов по годам')}
             />
             <PageFurthestFacility
                 avgDistance={findValue('Среднее расстояние между двумя кратчайшими объектами')}

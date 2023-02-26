@@ -53,12 +53,14 @@ export default async () => {
         return all
     }, {});
 
-    await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Год постройки меньше всего объектов', ${lowFrequentYear});`)
+    await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Год, в котором было возведено наименьшее количество объектов', ${lowFrequentYear});`)
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES ('Год постройки больше всего объектов', ${mostFrequentYear});`)
 
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
-        'Колиство построенных объектов по годам', 
+        'Количество построенных объектов по годам', 
         '${JSON.stringify(resultEveryYear)}'
     );`)
+
+    console.log(new Date(), 'Отработал mostBuildings')
     // console.log(result)
 }

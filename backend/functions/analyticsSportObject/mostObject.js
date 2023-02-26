@@ -18,9 +18,9 @@ export default async () => {
     data = Object.entries(data).sort((a, b) => a[1] < b[1] ? 1 : -1)
 
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
-        'Больше всего', 
+        'Количество спортивных объектов', 
         '${JSON.stringify(data)}'
     );`)
 
-    console.log(data)
+    console.log(new Date(), 'Отработал mostObject')
 }

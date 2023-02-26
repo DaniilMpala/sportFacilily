@@ -23,11 +23,12 @@ export default async () => {
     data = data.sort((a, b) => a["Дата_завершения_строительства_/_реконструкции"] < b["Дата_завершения_строительства_/_реконструкции"] ? 1 : -1)
 
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
-        'Последняя постройка', 
+        'Данные о последнем построившимся спортивном объекте', 
         '${JSON.stringify({
             ...data[0],
             "Строился в течение": new Date(data[0]["Дата_завершения_строительства_/_реконструкции"]).getTime() - new Date(data[0]["Дата_начала_строительства_/_реконструкции"]).getTime()
         })}'
     );`)
 
+    console.log(new Date(), 'Отработал lastOpenObject')
 }

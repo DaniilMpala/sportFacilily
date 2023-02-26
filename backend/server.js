@@ -30,7 +30,7 @@ app.get("/api/getAllFacility/", async (req, res) => {
 //Обновление
 app.post("/api/updateMetaTable", async (req, res) => {
     if (req.body?.token != "bsgft826465_+28hhdy3FDSGUnbhwydf78ikm2n34hrtyguis&@") {
-        res.json({ message: "У вас нет доступа для обновления таблицы", success: "error" })
+        res.json({ message: "У вас нет доступа для обновления таблицы", success: false })
         return
     }
 
@@ -39,7 +39,7 @@ app.post("/api/updateMetaTable", async (req, res) => {
 
 app.post("/api/fillTable", async (req, res) => {
     if (req.body?.token != "bsgft826465_+28hhdy3FDSGUnbhwydf78ikm2n34hrtyguis&@") {
-        res.json({ message: "У вас нет доступа для обновления таблицы", success: "error" })
+        res.json({ message: "У вас нет доступа для обновления таблицы", success: false })
         return
     }
 
@@ -51,3 +51,5 @@ app.post("/api/fillTable", async (req, res) => {
 
 server.timeout = 120000;
 server.listen(6001, () => console.log("Сервер активен"))
+
+export default app

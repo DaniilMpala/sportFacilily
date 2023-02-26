@@ -18,6 +18,7 @@ export default async () => {
         '${JSON.stringify(_findFarthestFromCenter)}'
     );`)
 
+    console.log(new Date(), 'Отработал distanceBetweenObjects')
 }
 
 // Здесь функция findNearestObjects() находит для каждого объекта в массиве расстояние до ближайшего объекта, сохраняет 

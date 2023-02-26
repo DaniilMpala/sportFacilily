@@ -7,7 +7,9 @@ export default async () => {
     `)
 
     await db.run(`REPLACE INTO statsSportObject (name, value) VALUES (
-        'Всего записей', 
+        'Всего построенных объектов', 
         ${data.count}
     );`)
+
+    console.log(new Date(), 'Отработал allObject')
 }
