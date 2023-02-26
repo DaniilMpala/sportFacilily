@@ -24,7 +24,7 @@ export const fillTable = async ({ nameFile, nameTable }) => {
     //таблицы могут быть nametable, nameTable, name_table, name_table
     if (!/[a-z0-9_]*/.test(nameTable.toLowerCase()))
         return { success: false, message: "Название модифицируемой таблицы не правильное" }
-
+ 
     let existsTable = await db.all(`PRAGMA table_info(${nameTable})`)
     if (existsTable.length == 0)
         return { success: false, message: "Модифицируемой таблицы не существует" }
