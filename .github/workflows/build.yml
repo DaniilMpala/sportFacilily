@@ -23,10 +23,10 @@ jobs:
         npm run build
 
     - name: Deploy
-      uses: DaniilMpala/sportFacilily
+      uses: actions/upload-artifact@v2
       with:
-        deploy_key: ${{ secrets.TOKEN }}
-        publish_dir: ./frontend/build
+        name: build
+        path: build/
 
   #   - name: Archive build folder
   #     uses: actions/upload-artifact@v2
