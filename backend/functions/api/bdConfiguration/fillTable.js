@@ -34,7 +34,7 @@ export const fillTable = async ({ nameFile, nameTable }) => {
         return { success: false, message: "Файл не найден" }
 
     let data = await readFileCsv(nameFile)
-
+    console.log(nameFile, `./data/${nameFile}`, data[0])
     try {
         let columns = Object.keys(data[0]).map(name => ({
             nameColumn: name,

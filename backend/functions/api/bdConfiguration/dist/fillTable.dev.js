@@ -108,7 +108,8 @@ var fillTable = function fillTable(_ref) {
 
         case 19:
           data = _context.sent;
-          _context.prev = 20;
+          console.log(nameFile, "./data/".concat(nameFile), data[0]);
+          _context.prev = 21;
           columns = Object.keys(data[0]).map(function (name) {
             return {
               nameColumn: name,
@@ -118,115 +119,115 @@ var fillTable = function fillTable(_ref) {
           _iteratorNormalCompletion = true;
           _didIteratorError = false;
           _iteratorError = undefined;
-          _context.prev = 25;
+          _context.prev = 26;
           _iterator = data[Symbol.iterator]();
 
-        case 27:
+        case 28:
           if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-            _context.next = 56;
+            _context.next = 57;
             break;
           }
 
           row = _step.value;
 
           if (Number(row['id:'])) {
-            _context.next = 31;
+            _context.next = 32;
             break;
           }
 
-          return _context.abrupt("continue", 53);
+          return _context.abrupt("continue", 54);
 
-        case 31:
+        case 32:
           str = [];
           _iteratorNormalCompletion2 = true;
           _didIteratorError2 = false;
           _iteratorError2 = undefined;
-          _context.prev = 35;
+          _context.prev = 36;
 
           for (_iterator2 = columns[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             nameColumn = _step2.value.nameColumn;
             str.push("'".concat(row[nameColumn], "'\n"));
           }
 
-          _context.next = 43;
+          _context.next = 44;
           break;
 
-        case 39:
-          _context.prev = 39;
-          _context.t0 = _context["catch"](35);
+        case 40:
+          _context.prev = 40;
+          _context.t0 = _context["catch"](36);
           _didIteratorError2 = true;
           _iteratorError2 = _context.t0;
 
-        case 43:
-          _context.prev = 43;
+        case 44:
           _context.prev = 44;
+          _context.prev = 45;
 
           if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
             _iterator2["return"]();
           }
 
-        case 46:
-          _context.prev = 46;
+        case 47:
+          _context.prev = 47;
 
           if (!_didIteratorError2) {
-            _context.next = 49;
+            _context.next = 50;
             break;
           }
 
           throw _iteratorError2;
 
-        case 49:
-          return _context.finish(46);
-
         case 50:
-          return _context.finish(43);
+          return _context.finish(47);
 
         case 51:
-          _context.next = 53;
+          return _context.finish(44);
+
+        case 52:
+          _context.next = 54;
           return regeneratorRuntime.awrap(_bd["default"].run("\n                INSERT OR IGNORE INTO ".concat(nameTable, " (").concat(columns.map(function (v) {
             return v.sqlColumn;
           }), ")\n                VALUES (").concat(str, ")\n            ")));
 
-        case 53:
+        case 54:
           _iteratorNormalCompletion = true;
-          _context.next = 27;
+          _context.next = 28;
           break;
 
-        case 56:
-          _context.next = 62;
+        case 57:
+          _context.next = 63;
           break;
 
-        case 58:
-          _context.prev = 58;
-          _context.t1 = _context["catch"](25);
+        case 59:
+          _context.prev = 59;
+          _context.t1 = _context["catch"](26);
           _didIteratorError = true;
           _iteratorError = _context.t1;
 
-        case 62:
-          _context.prev = 62;
+        case 63:
           _context.prev = 63;
+          _context.prev = 64;
 
           if (!_iteratorNormalCompletion && _iterator["return"] != null) {
             _iterator["return"]();
           }
 
-        case 65:
-          _context.prev = 65;
+        case 66:
+          _context.prev = 66;
 
           if (!_didIteratorError) {
-            _context.next = 68;
+            _context.next = 69;
             break;
           }
 
           throw _iteratorError;
 
-        case 68:
-          return _context.finish(65);
-
         case 69:
-          return _context.finish(62);
+          return _context.finish(66);
 
         case 70:
+          return _context.finish(63);
+
+        case 71:
           (0, _distanceBetweenObjects["default"])();
           (0, _lastOpenObject["default"])();
           (0, _mostBuildings["default"])();
@@ -238,21 +239,21 @@ var fillTable = function fillTable(_ref) {
             message: "Данные таблицы обновлены"
           });
 
-        case 79:
-          _context.prev = 79;
-          _context.t2 = _context["catch"](20);
+        case 80:
+          _context.prev = 80;
+          _context.t2 = _context["catch"](21);
           console.log(new Date(), _context.t2);
           return _context.abrupt("return", {
             success: false,
             message: "Внутренняя ошибка"
           });
 
-        case 83:
+        case 84:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[20, 79], [25, 58, 62, 70], [35, 39, 43, 51], [44,, 46, 50], [63,, 65, 69]]);
+  }, null, null, [[21, 80], [26, 59, 63, 71], [36, 40, 44, 52], [45,, 47, 51], [64,, 66, 70]]);
 };
 
 exports.fillTable = fillTable;

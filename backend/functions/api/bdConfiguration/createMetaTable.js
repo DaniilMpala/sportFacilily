@@ -4,7 +4,7 @@ import typeFile from "../../typeFile.js"
 import readFileCsv from "../../readFileCsv.js"
 
 export const createMetaTable = async ({ nameFile, nameTable }) => {
-    console.log({ nameFile, nameTable })
+
     if (!nameFile || !nameTable)
         return { success: false, message: "Недопустимое название параметра" }
  
@@ -42,7 +42,7 @@ export const createMetaTable = async ({ nameFile, nameTable }) => {
                 else findedUndefinedParams = true
 
                 if (!structure['Наименование поля'])
-                console.log(structure)
+    
                 structure['Наименование поля'] = structure['Наименование поля'].replaceAll(':', "").trim().replaceAll(' ', "_")
 
                 if (structure['Наименование поля'] == "id")
