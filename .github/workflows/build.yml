@@ -23,7 +23,7 @@ jobs:
         npm run build
 
     - name: Deploy to GitHub Pages
-      # uses: DaniilMpala/sportFacilily
+      uses: DaniilMpala/sportFacilily@1
       with:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         BRANCH: master
