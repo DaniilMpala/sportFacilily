@@ -21,38 +21,39 @@ jobs:
         cd frontend
         npm install
         npm run build
+      working-directory: frontend/
 
-    - name: Archive build folder
-      uses: actions/upload-artifact@v2
-      with:
-        name: build
-        path: build
+  #   - name: Archive build folder
+  #     uses: actions/upload-artifact@v2
+  #     with:
+  #       name: build
+  #       path: build
 
 
-  upload:
-    name: Upload build folder
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download build folder
-      uses: actions/download-artifact@v2
-      with:
-        name: build
-        path: build
+  # upload:
+  #   name: Upload build folder
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Download build folder
+  #     uses: actions/download-artifact@v2
+  #     with:
+  #       name: build
+  #       path: build
 
-    - name: Commit changes
-      uses: sportFacilily/add-and-commit@v8
-      with:
-        add: 'build'
-        message: 'Add build folder'
+  #   - name: Commit changes
+  #     uses: sportFacilily/add-and-commit@v8
+  #     with:
+  #       add: 'build'
+  #       message: 'Add build folder'
 
-    - name: Push changes
-      uses: sportFacilily/push@v1
-      with:
-        branch: 'master'
-        force: true
-        directory: 'frontend/build'
-        github_token: ${{ secrets.TOKEN }}
+  #   - name: Push changes
+  #     uses: sportFacilily/push@v1
+  #     with:
+  #       branch: 'master'
+  #       force: true
+  #       directory: 'frontend/build'
+  #       github_token: ${{ secrets.TOKEN }}
     # - name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
