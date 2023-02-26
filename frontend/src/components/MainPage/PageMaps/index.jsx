@@ -46,7 +46,7 @@ export default ({ }) => {
                 </div>
                 <h3 className={styles.title}>{selectedFacility['Название']}</h3>
                 {selectedFacility["Дата_завершения_строительства_/_реконструкции"] ? <span className={styles.date}>Действует с {selectedFacility["Дата_завершения_строительства_/_реконструкции"]}</span> : ''}
-                <span className={styles.desc}>Тип спорт-комплекса: {selectedFacility["Тип_спортивного_комплекса"]}. {selectedFacility["Краткое_описание"]}</span>
+                <span className={styles.desc} dangerouslySetInnerHTML={{__html: `Тип спорт-комплекса: ${selectedFacility["Тип_спортивного_комплекса"]}. ${selectedFacility["Краткое_описание"]}`}}></span>
                 {selectedFacility["Виды_спорта"] ? <span className={styles.typeSports}>Доступные виды спорта: {selectedFacility["Виды_спорта"]}</span> : ''}
                 {selectedFacility["Контактный_телефон_объекта"] ? <span className={styles.phone}>Телефон: {selectedFacility["Контактный_телефон_объекта"]}</span> : ''}
                 <span className={styles.adress}>Адрес: {selectedFacility["Адрес"]}</span>
