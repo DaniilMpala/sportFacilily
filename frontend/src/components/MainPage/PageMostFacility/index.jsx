@@ -5,10 +5,13 @@ import * as d3 from "d3";
 import swimSvg from '../../../assets/style/image/swimSvg.svg'
 import getRandomColor from "../../../utils/getRandomColor";
 
+
+
 export default ({ most, bestYear, lessYear, yearBuilding }) => {
     most = most ? JSON.parse(most) : []
     yearBuilding = yearBuilding ? Object.entries(JSON.parse(yearBuilding)) : []
-    console.log(yearBuilding)
+
+    const sizeSvg = {width:600, height:500}
     const ref = React.useRef(null);
 
     React.useEffect(() => {
@@ -24,19 +27,19 @@ export default ({ most, bestYear, lessYear, yearBuilding }) => {
 
         const svg = d3.select(ref.current);
         const margin = { top: 110, right: 20, bottom: 30, left: 50 };
-        const width = 500 - margin.left - margin.right;
-        const height = 300 - margin.top - margin.bottom;
+        const width = sizeSvg.width - margin.left - margin.right;
+        const height =  sizeSvg.height - margin.top - margin.bottom;
         const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
         const x = d3.scaleTime()
             //Передаем объект, первым параметров, а вторым это функция итерации
-            .domain(d3.extent(yearBuilding, d => d[0]))
+            .domain(d3.extent(yearBuilding, d => new Date(d[0])))
             .range([0, width]);
-
+        
         const y = d3.scaleLinear()
             .domain([0, d3.max(yearBuilding, d => Object.entries(d[1]).reduce((all, cur) => all < cur[1] ? cur[1] : all, 0))])
             .range([height, 0]);
-
+        
         g.append("g")
             .attr("transform", `translate(0,${height})`)
             .call(d3.axisBottom(x));
@@ -65,7 +68,7 @@ export default ({ most, bestYear, lessYear, yearBuilding }) => {
                     .attr("stroke-linecap", "round")
                     .attr("stroke-width", 1.5)
                     .attr("d", d3.line()
-                        .x(d => x(d[0]))
+                        .x(d => x(new Date(d[0])))
                         .y(d => {
                             let typeFac = Object.entries(d[1]).find(el => el[0] == arrayTypeFacility[i][0])
                             return y(typeFac ? typeFac[1] : 0)
@@ -130,7 +133,7 @@ export default ({ most, bestYear, lessYear, yearBuilding }) => {
                 </div>
 
                 <div className={styles.graffic}>
-                    <svg ref={ref} width={500} height={300}>
+                    <svg ref={ref} width={sizeSvg.width} height={sizeSvg.height}>
                         <g />
                     </svg>
                 </div>

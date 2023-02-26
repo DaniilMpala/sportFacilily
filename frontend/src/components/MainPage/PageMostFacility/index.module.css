@@ -13,14 +13,17 @@
     gap: 7px;
     grid-template-columns: 1fr 1fr;
 }
-.graffic{
+
+.graffic {
     grid-area: graffic;
     justify-self: center;
 }
+
 .info {
     grid-area: info;
     position: relative;
-
+    display: flex;
+    align-items: center;
 }
 
 .info>div {

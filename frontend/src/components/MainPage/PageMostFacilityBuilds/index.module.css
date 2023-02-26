@@ -10,7 +10,7 @@
     display: grid;
     grid-template:
         'info graffic';
-    gap: 15vw;
+    gap: 20vw;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -115,7 +115,7 @@
 .DownInfo {
     position: absolute;
     bottom: -44vh;
-    left: 29vw;
+    left: 26vw;
     display: flex;
     flex-direction: column;
     gap: 7px;

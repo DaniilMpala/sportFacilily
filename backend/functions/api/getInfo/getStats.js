@@ -1,4 +1,4 @@
-import db from "../../connections/bd.js"
+import db from "../../../connections/bd.js"
 
 export default async ({ table }) => {
     if (!table)

@@ -9,19 +9,20 @@ export default ({ mostFinance, avgFinance, mostFinanceYear, allFinance, dataFCP 
     mostFinanceYear = mostFinanceYear ? JSON.parse(mostFinanceYear) : {}
     dataFCP = dataFCP ? JSON.parse(dataFCP) : []
 
+    const sizeSvg = {width:500, height:300}
     const ref = React.useRef(null);
 
     React.useEffect(() => {
         let _mostFinance = Object.entries(mostFinance)
         const svg = d3.select(ref.current);
         const margin = { top: 30, right: 20, bottom: 0, left: 50 };
-        const width = 500 - margin.left - margin.right;
-        const height = 300 - margin.top - margin.bottom;
+        const width = sizeSvg.width - margin.left - margin.right;
+        const height = sizeSvg.height - margin.top - margin.bottom;
         const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
         const x = d3.scaleTime()
             //Передаем объект, первым параметров, а вторым это функция итерации
-            .domain(d3.extent(_mostFinance, d => d[0]))
+            .domain(d3.extent(_mostFinance, d => new Date(d[0])))
             .range([0, width]);
 
         const y = d3.scaleLinear()
@@ -50,7 +51,7 @@ export default ({ mostFinance, avgFinance, mostFinanceYear, allFinance, dataFCP 
             .attr("stroke-linecap", "round")
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
-                .x(d => x(d[0]))
+                .x(d => x(new Date(d[0])))
                 .y(d => y(Math.floor(d[1] / 1000 / 1000 / 1000)))
             );
 
@@ -87,7 +88,7 @@ export default ({ mostFinance, avgFinance, mostFinanceYear, allFinance, dataFCP 
                 </div>
 
                 <div className={styles.graffic}>
-                    <svg className={styles.grafficDiv} ref={ref} width={500} height={300}>
+                    <svg className={styles.grafficDiv} ref={ref}  width={sizeSvg.width} height={sizeSvg.height}>
                         <g />
                     </svg>
                 </div>

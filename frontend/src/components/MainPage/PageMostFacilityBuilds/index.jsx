@@ -98,7 +98,7 @@ export default ({ lastBuild, mostFacility, yearBuilding }) => {
                         <div className={styles.grafficDiv}>
                             <Doughnut data={dataBuild} options={options} />
                             <div>
-                                <label htmlFor="year">Выберите год постройки:</label>
+                                <label htmlFor="year">Выберите год постройки: {year}</label>
                                 <input className={styles.slider} type="range" id="year" name="year" min={yearBuilding.at(0)[0]} max={yearBuilding.at(-1)[0]} value={year} onChange={handleYearChange} />
                             </div>
                         </div>
