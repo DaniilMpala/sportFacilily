@@ -33,7 +33,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: master
-        folder: build
 
   #   - name: Archive build folder
   #     uses: actions/upload-artifact@v2
