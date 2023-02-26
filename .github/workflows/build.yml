@@ -28,45 +28,8 @@ jobs:
         npm install
         npm run build
 
-    - name: Deploy to repository
-      uses: DaniilMpala/sportFacilily@master # Загрузка сборки в репозиторий
-      with:
-        github_token: ${{ secrets.TOKEN }}
-        branch: master
-
-  #   - name: Archive build folder
-  #     uses: actions/upload-artifact@v2
-  #     with:
-  #       name: build
-  #       path: build
-
-
-  # upload:
-  #   name: Upload build folder
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Download build folder
-  #     uses: actions/download-artifact@v2
-  #     with:
-  #       name: build
-  #       path: build
-
-  #   - name: Commit changes
-  #     uses: sportFacilily/add-and-commit@v8
-  #     with:
-  #       add: 'build'
-  #       message: 'Add build folder'
-
-  #   - name: Push changes
-  #     uses: sportFacilily/push@v1
-  #     with:
-  #       branch: 'master'
-  #       force: true
-  #       directory: 'frontend/build'
-  #       github_token: ${{ secrets.TOKEN }}
-    # - name: Deploy to GitHub Pages
-    #   uses: peaceiris/actions-gh-pages@v3
+    # - name: Deploy to repository
+    #   uses: DaniilMpala/sportFacilily@master # Загрузка сборки в репозиторий
     #   with:
-    #     personal_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: ./build
+    #     github_token: ${{ secrets.TOKEN }}
+    #     branch: master
