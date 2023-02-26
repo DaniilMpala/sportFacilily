@@ -22,21 +22,18 @@ jobs:
         npm install
         npm run build
 
-    - name: Deploy
-      with:
-        ref: main # Название ветки, в которую вы хотите скопировать содержимое папки build
-        path: main # Название папки, где будет создана новая ветка
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test api
       run: |
-        git config user.name "${GITHUB_ACTOR}"
-        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git checkout --orphan temp
-        cp -r ../build/* .
-        git add -A
-        git commit -am "Build"
-        git branch -M main
-        git push --force-with-lease origin main
+        cd ../backend
+        npm install
+        npm test
+
+    - name: Deploy to repository
+      uses: elstudio/actions-git-push@master # Загрузка сборки в репозиторий
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: build
 
   #   - name: Archive build folder
   #     uses: actions/upload-artifact@v2
