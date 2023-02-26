@@ -5,13 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createMetaTable = void 0;
 
-var _bd = _interopRequireDefault(require("../../connections/bd.js"));
+var _bd = _interopRequireDefault(require("../../../connections/bd.js"));
 
 var _fs = _interopRequireDefault(require("fs"));
 
-var _typeFile = _interopRequireDefault(require("../typeFile.js"));
+var _typeFile = _interopRequireDefault(require("../../typeFile.js"));
 
-var _readFileCsv = _interopRequireDefault(require("../readFileCsv.js"));
+var _readFileCsv = _interopRequireDefault(require("../../readFileCsv.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

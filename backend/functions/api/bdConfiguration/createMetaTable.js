@@ -1,7 +1,7 @@
-import db from "../../connections/bd.js"
+import db from "../../../connections/bd.js"
 import fs from 'fs'
-import typeFile from "../typeFile.js"
-import readFileCsv from "../readFileCsv.js"
+import typeFile from "../../typeFile.js"
+import readFileCsv from "../../readFileCsv.js"
 
 export const createMetaTable = async ({ nameFile, nameTable }) => {
     if (!nameFile || !nameTable)
