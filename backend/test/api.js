@@ -1,6 +1,5 @@
-import app from '../server.js'
+import app from '../functions/api/appExpress/app.js'
 import request from 'supertest'
-import assert from 'assert'
 
 describe('API Tests', () => {
     it('GET /api/fillTable with token', (done) => {
@@ -15,7 +14,8 @@ describe('API Tests', () => {
             .expect({
                 "success": true,
                 "message": "Данные таблицы обновлены"
-            }, done);
+            }, done)
+
     });
 
     it('GET /api/fillTable without a token', (done) => {
@@ -30,7 +30,8 @@ describe('API Tests', () => {
             .expect({
                 "success": false,
                 "message": "У вас нет доступа для обновления таблицы"
-            }, done);
+            }, done)
+
     });
 
     it('GET /api/updateMetaTable', (done) => {
@@ -45,18 +46,8 @@ describe('API Tests', () => {
             .expect({
                 "success": false,
                 "message": "Таблица с таким названием уже существует"
-            }, done);
+            }, done)
+
     });
-
-    //   it('GET / should return "Hello World!"', (done) => {
-    //     request(app)
-    //       .get('/')
-    //       .expect('Hello World!', done);
-    //   });
-
-    // Добавьте больше тестов для вашего API
-
-
-
 })
 
