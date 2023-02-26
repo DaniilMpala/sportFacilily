@@ -34,3 +34,7 @@
 ## [Figma](https://www.figma.com/file/VrhlvZ7qEjK7n0wfB0Incf/Untitled?node-id=1%3A2&t=1XyIDhguVdr4XiFU-1)
 
 ![Работающий вариант](https://github.com/DaniilMpala/sportFacilily/blob/master/Screen.png)
+
+## [GitHub Action](https://github.com/DaniilMpala/sportFacilily/blob/master/Action.png)
+
+![Работающий вариант](https://github.com/DaniilMpala/sportFacilily/blob/master/Action.png)
