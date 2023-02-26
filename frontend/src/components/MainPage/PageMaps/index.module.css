@@ -1,6 +1,9 @@
 .PageMaps {
     height: 100vh;
     padding: 5vh;
+
+    display: flex;
+    align-items: center;
 }
 
 .blockMapInfo {

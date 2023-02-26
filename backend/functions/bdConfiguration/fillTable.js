@@ -25,6 +25,10 @@ export const fillTable = async ({ nameFile, nameTable }) => {
     if (!/[a-z0-9_]*/.test(nameTable.toLowerCase()))
         return { success: false, message: "Название модифицируемой таблицы не правильное" }
 
+    let existsTable = await db.all(`PRAGMA table_info(${nameTable})`)
+    if (existsTable.length == 0)
+        return { success: false, message: "Модифицируемой таблицы не существует" }
+
     let exists = fs.existsSync(`./data/${nameFile}`);
     if (!exists)
         return { success: false, message: "Файл не найден" }
@@ -41,10 +45,10 @@ export const fillTable = async ({ nameFile, nameTable }) => {
             if (!Number(row['id:'])) continue
 
             let str = []
-            for (const { nameColumn } of columns) 
+            for (const { nameColumn } of columns)
                 str.push(`'${row[nameColumn]}'\n`)
-            
-      
+
+
             await db.run(`
                 INSERT OR IGNORE INTO ${nameTable} (${columns.map(v => v.sqlColumn)})
                 VALUES (${str})

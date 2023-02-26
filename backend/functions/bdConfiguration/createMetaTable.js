@@ -71,6 +71,7 @@ export const createMetaTable = async ({ nameFile, nameTable }) => {
             return { success: false, message: "Таблица с таким названием уже существует" }
         }
     } catch (error) {
+        console.log(new Date(), error)
         return { success: false, message: "Внутренняя ошибка" }
     }
 

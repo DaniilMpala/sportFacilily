@@ -1,0 +1,48 @@
+.PageMostFacility {
+    height: 100vh;
+    padding: 5vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.blockPageMostFacility {
+    display: grid;
+    grid-template:
+        'info graffic';
+    gap: 7px;
+    grid-template-columns: 1fr 1fr;
+}
+.graffic{
+    grid-area: graffic;
+    justify-self: center;
+}
+.info {
+    grid-area: info;
+    position: relative;
+
+}
+
+.info>div {
+    position: relative;
+    margin-left: 9vw;
+}
+
+.info img {
+    position: absolute;
+    z-index: 0;
+    height: 60vh;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.info span {
+    font-size: 2vh;
+    color: #9A9A9A;
+}
+
+.info h3 {
+    font-size: 3.5vh;
+    margin-top: 0;
+    margin-bottom: 10px;
+}

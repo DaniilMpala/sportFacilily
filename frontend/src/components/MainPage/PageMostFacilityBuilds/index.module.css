@@ -1,0 +1,169 @@
+.PageMostFacilityBuilds {
+    height: 100vh;
+    padding: 5vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.blockPageMostFacilityBuilds {
+    display: grid;
+    grid-template:
+        'info graffic';
+    gap: 15vw;
+    grid-template-columns: 1fr 1fr;
+}
+
+.graffic {
+    grid-area: graffic;
+    position: relative;
+}
+
+.grafficDiv {
+    position: absolute;
+    width: 35vw;
+    height: 50vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info {
+    grid-area: info;
+    position: relative;
+
+}
+
+.mainInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-end;
+}
+
+.info h3, ul {
+    margin: 0;
+    font-size: 3.5vh;
+}
+
+.info span {
+    font-size: 2vh;
+}
+
+.info ul {
+    padding-inline-start: 20px;
+}
+
+
+.info li {
+    width: 150px;
+    font-size: 1.6vh;
+}
+
+.right {
+    text-align: right;
+}
+
+.info span, li {
+    color: #9A9A9A;
+}
+
+.infoBadmintonSvg {
+    width: 30vw;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translate(0, -50%);
+}
+
+/* .circleWhiteUp {
+    position: absolute;
+   
+    top: 50%;
+    left: 0;
+    transform: translate(-25%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.UpInfo {
+    border-radius: 100%;
+    background-color: white;
+    width: 30vh;
+    height: 30vh;
+
+    position: absolute;
+    top: -32vh;
+    right: -10vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.UpInfo>div {
+    margin-left: 3vw;
+    width: 30vw;
+    position: absolute;
+}
+
+.DownInfo {
+    position: absolute;
+    bottom: -44vh;
+    left: 29vw;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-start;
+    justify-content: center;
+
+    background-color: white;
+    width: 35vh;
+    height: 35vh;
+    border-radius: 100%;
+}
+
+.DownInfoText {
+    margin-left: 3vw;
+    width: 30vw;
+    position: absolute;
+}
+
+/* .circleWhiteDown {
+    position: absolute;
+    border-radius: 100%;
+    background-color: white;
+    width: 35vh;
+    height: 35vh;
+    left: -5vw;
+    top: -23vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1vh;
+    border-radius: 5px;
+    background-color: #d5d5d5;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    background-color: #327BED;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}

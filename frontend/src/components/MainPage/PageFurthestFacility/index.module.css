@@ -1,0 +1,77 @@
+.PageFurthestFacility {
+    height: 100vh;
+    padding: 5vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.blockPageFurthestFacility {
+    display: grid;
+    grid-template:
+        'info map';
+    gap: 7px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.map {
+    grid-area: map;
+    position: relative;
+}
+
+.mapMap {
+    position: absolute;
+    width: 35vw;
+    height: 50vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info {
+    grid-area: info;
+    position: relative;
+
+}
+
+.titleDesc {
+    position: relative;
+    margin-left: 9vw;
+}
+
+.info img {
+    position: absolute;
+    z-index: 0;
+    height: 60vh;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.info span {
+    font-size: 2vh;
+    color: #9A9A9A;
+}
+
+.info h3 {
+    font-size: 3.5vh;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.circleWhite {
+    position: absolute;
+    border-radius: 100%;
+    background-color: white;
+    width: 25vh;
+    height: 25vh;
+    right: 13vw;
+    top: 21vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+}
+
+/* .circleWhite span {
+
+} */
