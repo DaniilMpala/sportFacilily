@@ -1,11 +1,12 @@
 
 import expess from "express"
 import bodyParser from 'body-parser'
-
+import db from "../../../connections/bd.js"
 import { createMetaTable } from "../updateTable/createMetaTable.js"
 import { fillTable } from "../updateTable/fillTable.js"
 import getStats from "../getInfo/getStats.js"
-import getAllFacility from "../getInfo/getAllFacility.js"
+import getAllFacilitySportFacility from "../getInfo/getAllFacilitySportFacility.js"
+import { addComment } from "../updateTable/addComment.js"
 
 
 
@@ -20,20 +21,29 @@ app.get("/api/getStats/", async (req, res) => {
     res.json(await getStats(req.query))
 })
 
-app.get("/api/getAllFacility/", async (req, res) => {
-    res.json(await getAllFacility(req.query))
+app.get("/api/getAllFacilitySportFacility/", async (req, res) => {
+    res.json(await getAllFacilitySportFacility(req.query))
 })
+
+
+//Добавление комметария
+app.post("/api/addComment", async (req, res) => {
+    res.json(await addComment(req.body))
+})
+
 
 //Обновление
 app.post("/api/updateMetaTable", async (req, res) => {
-    if (req.body?.token != "bsgft826465_+28hhdy3FDSGUnbhwydf78ikm2n34hrtyguis&@")
+    let token = (await db.get(`SELECT value FROM security WHERE name = 'tokenUpdateTable'`))?.value
+    if (req.body?.token != token)
         return res.json({ message: "У вас нет доступа для обновления таблицы", success: false })
 
     res.json(await createMetaTable(req.body))
 })
 
 app.post("/api/fillTable", async (req, res) => {
-    if (req.body?.token != "bsgft826465_+28hhdy3FDSGUnbhwydf78ikm2n34hrtyguis&@")
+    let token = (await db.get(`SELECT value FROM security WHERE name = 'tokenUpdateTable'`))?.value
+    if (req.body?.token != token)
         return res.json({ message: "У вас нет доступа для обновления таблицы", success: false })
 
     res.json(await fillTable(req.body))

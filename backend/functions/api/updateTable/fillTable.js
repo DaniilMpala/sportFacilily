@@ -2,20 +2,20 @@ import db from "../../../connections/bd.js"
 import fs from 'fs'
 import typeFile from "../../typeFile.js"
 import readFileCsv from "../../readFileCsv.js"
-import distanceBetweenObjects from "../../analyticsSportObject/distanceBetweenObjects.js"
-import mostBuildings from "../../analyticsSportObject/mostBuildings.js"
-import mostFinance from "../../analyticsSportObject/mostFinance.js"
-import mostObject from "../../analyticsSportObject/mostObject.js"
-import allObject from "../../analyticsSportObject/allObject.js"
-import lastOpenObject from "../../analyticsSportObject/lastOpenObject.js"
+import distanceBetweenObjects from "../../analytics/distanceBetweenObjects.js"
+import mostBuildings from "../../analytics/mostBuildings.js"
+import mostFinance from "../../analytics/mostFinance.js"
+import mostObject from "../../analytics/mostObject.js"
+import allObject from "../../analytics/allObject.js"
+import lastOpenObject from "../../analytics/lastOpenObject.js"
 
 export const fillTable = async ({ nameFile, nameTable }) => {
+    //очистим от пробелом
+    nameFile = (nameFile || '').trim()
+    nameTable = (nameTable || '').trim()
+
     if (!nameFile || !nameTable)
         return { success: false, message: "Недопустимое название параметра" }
-
-    //очистим от пробелом
-    nameFile = nameFile.trim()
-    nameTable = nameTable.trim()
 
     if (typeFile(nameFile) != 'csv')
         return { success: false, message: "Файл должен быть типа csv" }

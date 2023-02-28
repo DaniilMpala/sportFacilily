@@ -4,13 +4,13 @@ import typeFile from "../../typeFile.js"
 import readFileCsv from "../../readFileCsv.js"
 
 export const createMetaTable = async ({ nameFile, nameTable }) => {
+    //очистим от пробелом
+    nameFile = (nameFile || '').trim()
+    nameTable = (nameTable || '').trim()
 
     if (!nameFile || !nameTable)
         return { success: false, message: "Недопустимое название параметра" }
- 
-    //очистим от пробелом
-    nameFile = nameFile.trim()
-    nameTable = nameTable.trim()
+
 
     if (typeFile(nameFile) != 'csv')
         return { success: false, message: "Файл должен быть типа csv" }

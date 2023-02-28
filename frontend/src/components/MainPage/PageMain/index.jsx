@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./index.module.css";
 
-import arrowDown from '../../../assets/style/image/arrowDown.png'
-import basketImg from '../../../assets/style/image/basketImg.svg'
+import arrowDown from '../../../assets/image/arrowDown.png'
+import basketImg from '../../../assets/image/basketImg.svg'
 
 export default ({allSportObject}) => {
     return (

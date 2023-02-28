@@ -24,16 +24,9 @@ input[type="number"]:focus {
     -moz-appearance: textfield;
 }
 
-/* div[aria-label="grid"]{
-    max-height: 500px;
-} */
-/* body {
-    font-family: 'Lato', sans-serif;
-    } */
 * {
     color: #1D1D1D;
     font-family: 'Gilroy', sans-serif;
-    /* font-family: 'Nagoda', sans-serif; */
     font-weight: 600;
     box-sizing: border-box;
     z-index: 1;
@@ -149,9 +142,7 @@ label {
 
 
 
-input[type="text"], input[type="number"], select, textarea {
-    font-family: 'Montserrat';
-
+input[type="text"], input[type="number"], select {
     border-radius: 8px;
     box-sizing: border-box;
 
@@ -202,14 +193,13 @@ a {
 }
 
 button {
-    background: #327BED;
+    background: rgba(50, 123, 237, 0.5);
     border-radius: 8px;
     border: none;
     box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
-    font-family: "Montserrat";
     font-size: 18px;
     outline: none;
     outline: 0;
@@ -220,21 +210,22 @@ button {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    transition: background 0.2s;
 
 }
 
 button:disabled {
-    background-color: #2f2599;
+    background-color: rgb(110, 110, 110);
 }
 
 button:hover {
-    background-color: #5245e2;
+    background-color: #327BED;
     box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
     transform: translateY(-2px);
 }
 
 button:active {
-    background-color: #4135ca;
+    background-color: #327BED;
 }
 
 
@@ -248,7 +239,6 @@ button:active {
 
 
 p {
-    font-family: 'Consolas';
     font-weight: normal;
     font-size: 12px;
     color: #afafaf;
@@ -378,6 +368,7 @@ option {
  
 *::-webkit-scrollbar-thumb {
   background-color: #327BED;
+  border-radius: 10px;
 }
 /* .slider {
     -webkit-appearance: none;

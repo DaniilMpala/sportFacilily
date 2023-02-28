@@ -9,13 +9,13 @@
 .blockMapInfo {
     display: grid;
     grid-template:
-        'icon title map'
-        'date desc map'
-        '. typeSports map'
-        '. phone map'
-        '. adress map';
+        'icon title title map'
+        'date desc desc map'
+        '. typeSports phone map'
+        '. typeSportsList adress map'
+        '. comment comment .';
     gap: 7px;
-    grid-template-columns: 5vw 2fr 1fr;
+    grid-template-columns: 5vw 3fr 3fr 4fr;
 }
 
 .rectangleTitleMap {
@@ -24,6 +24,7 @@
     width: 5vw;
     height: 10vh;
 }
+
 .rectangleTitleMap img {
     position: absolute;
     width: 9vw;
@@ -39,7 +40,8 @@
 
 .map {
     grid-area: map;
-    border-radius: 10px;
+    padding: 1vw;
+
 }
 
 .date {
@@ -49,14 +51,7 @@
     text-align: end;
 }
 
-.typeSports {
-    grid-area: typeSports;
-    color: #9A9A9A;
-    font-weight: 400;
-    font-size: 2.5vh;
-    width: 50%;
-    justify-self: left;
-}
+
 
 .desc {
     grid-area: desc;
@@ -65,24 +60,135 @@
     font-size: 2.5vh;
     max-height: 20vh;
 
-    overflow: auto; /* Обрезаем всё за пределами блока */
-    text-overflow: ellipsis; 
+    overflow: auto;
 }
 
 .phone {
     grid-area: phone;
     color: #1D1D1D;
     text-align: end;
-    font-size: 2.5vh;
-    width: 50%;
+    font-size: 2vh;
     justify-self: right;
+    align-self: flex-end;
 }
 
 .adress {
     grid-area: adress;
     color: #9A9A9A;
     text-align: end;
-    font-size: 2.5vh;
-    width: 50%;
+    font-size: 2vh;
     justify-self: right;
+}
+
+.typeSports {
+    grid-area: typeSports;
+    font-size: 2vh;
+    justify-self: left;
+    align-self: flex-end;
+    color: #1D1D1D;
+}
+
+.typeSportsList {
+    grid-area: typeSportsList;
+    color: #9A9A9A;
+    /* font-weight: 400; */
+    font-size: 2vh;
+    justify-self: left;
+}
+
+.comment {
+    margin-top: 3vh;
+    grid-area: comment;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.comment h3 {
+    margin: 0;
+    font-size: 3vh;
+}
+.commentList{
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+    height: 20vh;
+    overflow-y: auto;
+    padding-right: 7px;
+}
+.commentBlock{
+    padding: 7px 0;
+    min-height: 7vh;
+    max-height: 7vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    background: white;
+    border-radius: 25px;
+    
+}
+.commentBlock span{
+    color: #9A9A9A;
+    margin-left: 2vw;
+    overflow: auto;
+    height: 100%;
+    margin-right: 1vw;
+}
+
+.commentBlock img{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.noComments {
+    color: #9A9A9A;
+    font-size: 2vh;
+    font-weight: 400;
+}
+
+.addComments {
+    text-decoration-line: underline;
+    transition: color 0.1s;
+    width: fit-content;
+    cursor: pointer;
+    font-size: 2vh;
+}
+
+.addComments:hover {
+    color: #9A9A9A;
+}
+
+.addComments h3 {
+    font-size: 3vh;
+}
+
+.addCommentsBlock {
+    display: flex;
+    gap: 7px;
+}
+
+.addCommentsBlock textarea {
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    vertical-align: baseline;
+    font-weight: 400;
+    width: 100%;
+
+    border: none;
+    color: #1D1D1D;
+    background-color: white;
+
+    padding: 1vh;
+    font-size: 1.5vh;
+    height: 100%;
+}
+
+.addCommentsBlock button {
+    width: 5vh;
+    height: 5vh;
+    font-size: 3vh;
+    padding: 0;
 }

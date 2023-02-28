@@ -1,16 +1,7 @@
 import db from "../../../connections/bd.js"
 
-export default async ({ table }) => {
-    if (!table)
-        return { success: false, message: "Не выбрана таблица" }
-
-    table = table.trim()
-
-    if (!/[a-z0-9_]*/.test(table.toLowerCase()))
-        return { success: false, message: "Недопустимое название таблицы" }
-
-
-    let data = await db.all(`
+export default async () => {
+    let dataFacility = db.all(`
         SELECT 
             id,
             "Название", 
@@ -22,13 +13,25 @@ export default async ({ table }) => {
             "Адрес",
             "Яндекс_координата_центра_X",
             "Яндекс_координата_центра_Y"
-        FROM ${table}
+        FROM sportObject
         WHERE 
             "Яндекс_координата_центра_X" LIKE '%.%' AND
             "Яндекс_координата_центра_Y" LIKE '%.%'
     `)
+    let dataComment = db.all(`
+        SELECT 
+            date,
+            idFacility,
+            text
+        FROM comment
+        WHERE 
+            "table" = 'sportObject'
+    `)
 
-    data = data.map(e => {
+    dataFacility = await dataFacility
+    dataComment = await dataComment
+
+    dataFacility = dataFacility.map(e => {
         //Координаты X и Y на офиц. сайте перепутаны местами!
         e.geometry = {
             coordinates: [e["Яндекс_координата_центра_Y"], e["Яндекс_координата_центра_X"]],
@@ -39,11 +42,13 @@ export default async ({ table }) => {
             hintContent: e["Название"],
         }
 
+        e.comments = dataComment.reduce((all, cur) => cur.idFacility == e.id ? [...all, cur] : all, []).sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
+
         delete e["Яндекс_координата_центра_Y"]
         delete e["Яндекс_координата_центра_X"]
 
         return e
     })
 
-    return data
+    return dataFacility
 }

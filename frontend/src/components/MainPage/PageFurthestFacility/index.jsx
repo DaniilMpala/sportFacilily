@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 
-import strelokSvg from '../../../assets/style/image/strelokSvg.svg'
+import strelokSvg from '../../../assets/image/strelokSvg.svg'
 
 export default ({ furthestFacility, avgDistance }) => {
     furthestFacility = furthestFacility ? JSON.parse(furthestFacility) : {}

@@ -5,7 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-import badmintonSvg from '../../../assets/style/image/badmintonSvg.svg'
+import badmintonSvg from '../../../assets/image/badmintonSvg.svg'
 import formatDate from "../../../utils/formatDate";
 import convertMillisecondsToYears from "../../../utils/convertMillisecondsToYears";
 import getRandomColor from "../../../utils/getRandomColor";

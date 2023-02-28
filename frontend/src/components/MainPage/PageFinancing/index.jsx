@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import * as d3 from "d3";
 
-import skierSvg from '../../../assets/style/image/skierSvg.svg'
+import skierSvg from '../../../assets/image/skierSvg.svg'
 
 export default ({ mostFinance, avgFinance, mostFinanceYear, allFinance, dataFCP }) => {
     mostFinance = mostFinance ? JSON.parse(mostFinance) : {}

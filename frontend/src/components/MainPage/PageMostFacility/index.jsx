@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import * as d3 from "d3";
 
-import swimSvg from '../../../assets/style/image/swimSvg.svg'
+import swimSvg from '../../../assets/image/swimSvg.svg'
 import getRandomColor from "../../../utils/getRandomColor";
 
 
