@@ -13,7 +13,7 @@ export default ({ furthestFacility, avgDistance }) => {
                 <div className={styles.info}>
                     <img src={strelokSvg} />
                     <div className={styles.titleDesc}>
-                        <h3>Самый дальний спортивный объет находится в {furthestFacility["Населённый_пункт"]}</h3>
+                        <h3>Самый дальний спортивный объект находится в {furthestFacility["Населённый_пункт"]}</h3>
                         <span>От центра москвы расстояние составляет {Math.floor(furthestFacility["distance"])}км.</span>
                     </div>
                     <div className={styles.circleWhite}>

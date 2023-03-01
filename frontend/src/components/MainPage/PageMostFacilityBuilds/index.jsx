@@ -19,13 +19,12 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Количество построенных зданий по названию постройки',
+            text: 'Количество построенных зданий',
             fontSize: 16,
         },
     },
 };
 export default ({ lastBuild, mostFacility, yearBuilding }) => {
-
     const yearBuildingObject = yearBuilding ? JSON.parse(yearBuilding) : []
 
     lastBuild = lastBuild ? JSON.parse(lastBuild) : {}
@@ -84,7 +83,6 @@ export default ({ lastBuild, mostFacility, yearBuilding }) => {
                     </div>
 
                     <div className={styles.DownInfo}>
-                        {/* <div className={styles.circleWhiteDown} /> */}
                         <div className={styles.DownInfoText}>
                             <h3>В {year} году</h3>
                             <ul>

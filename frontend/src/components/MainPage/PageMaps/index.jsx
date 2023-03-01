@@ -58,7 +58,6 @@ export default ({ }) => {
 
             setSelectedFacility({ ...selectedFacility })
 
-
             document.getElementById('addCommentTextarea').value = ''
         } 
     }
@@ -133,20 +132,10 @@ export default ({ }) => {
                                 onClick={handleFacilityClick}
                                 modules={['objectManager.addon.objectsBalloon']}
                             />
-                            {/* <Clusterer options={{
-                                preset: 'islands#invertedVioletClusterIcons',
-                                groupByCoordinates: false
-                            }}>
-                                {mapInfo.map((facility) => (
-                                    <Placemark key={Number(facility.id)} geometry={[facility["Яндекс_координата_центра_Y"], facility["Яндекс_координата_центра_X"]]} properties={{ hintContent: facility["Название"] }} />
-                                ))}
-                            </Clusterer> */}
                         </Map>
                     </div>
                 </YMaps>
             </div>
         </div>
-
-
     );
 };

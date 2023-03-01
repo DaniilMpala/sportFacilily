@@ -54,12 +54,9 @@ export default ({ most, bestYear, lessYear, yearBuilding }) => {
             .attr("text-anchor", "end")
             .text("Количество объектов");
 
-        // console.log(Object.entries(colorForFacility))
-
         for (const [year, typeFacility] of yearBuilding) {
             let arrayTypeFacility = Object.entries(typeFacility)
             for (let i = 0; i < arrayTypeFacility.length; i++) {
-                // console.log(arrayTypeFacility[i], colorForFacility[arrayTypeFacility[i][0]])
                 g.append("path")
                     .datum(yearBuilding)
                     .attr("fill", "none")
@@ -75,22 +72,8 @@ export default ({ most, bestYear, lessYear, yearBuilding }) => {
                         })
                     );
             }
-
         }
 
-
-
-        // g.append("path")
-        //     .datum(yearBuilding)
-        //     .attr("fill", "none")
-        //     .attr("stroke", "orange")
-        //     .attr("stroke-linejoin", "round")
-        //     .attr("stroke-linecap", "round")
-        //     .attr("stroke-width", 1.5)
-        //     .attr("d", d3.line()
-        //         .x(d => x(d[0]))
-        //         .y(d => y(d.sports_facilities))
-        //     );
 
         let xi = 0;
         let yi = 0;
